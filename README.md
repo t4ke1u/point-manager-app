@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Point Manager App
 
-## Getting Started
+## Commands
 
-First, run the development server:
+### yarn
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# パッケージインストール
+$ yarn
+
+# 開発サーバーを立てる
+$ yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### git
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+# 対象ファイルをインデックス（コミット対象）に追加
+$ git add {ファイルパス1} {ファイルパス2}...
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# 変更したファイルの一覧を出力
+$ git status
 
-## Learn More
+# 指定したエディタでメッセージを書き、インデックスにある全ファイルをコミット
+$ git commit
 
-To learn more about Next.js, take a look at the following resources:
+# メッセージを付け、インデックスにある全ファイルをコミットする
+$ git commit -m "{メッセージ}"
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 現在のローカルブランチを origin にプッシュする
+$ git push
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# 対象ブランチに切り替える
+$ git checkout {ブランチ名}
 
-## Deploy on Vercel
+# 対象ブランチを新規作成し、切り替える
+$ git checkout -b {ブランチ名}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# ワークツリーにある対象ファイルの変更を取り消す
+$ git checkout {ファイルパス}
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# 最新の履歴を取得する
+$ git fetch
+
+# 対象ブランチを、現在のブランチへマージする
+$ git merge {ブランチ名}
+
+# git fetch + git merge
+$ git pull
+```
