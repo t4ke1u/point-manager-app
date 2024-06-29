@@ -27,7 +27,7 @@ const Navigation = ({
               <span>Rank</span>
             </Link>
             <Link
-              href="/"
+              href="/record"
               className="flex items-center gap-2 hover:text-gray-900"
             >
               <HiMiniPencilSquare />
@@ -47,7 +47,7 @@ const Navigation = ({
       <div className="h-16 hidden md:contents" />
       <div className="md:hidden">
         <div className="fixed bottom-0 left-0 h-16 container mx-auto flex p-5 items-center bg-gray-50">
-          <nav className="w-full p-12 flex gap-16 items-center text-base justify-around">
+          <nav className="w-full px-12 flex gap-16 items-center text-base justify-around">
             <Link
               href="/"
               className="flex flex-col gap-1 items-center text-gray-500"
@@ -55,7 +55,7 @@ const Navigation = ({
               <FaRankingStar className="text-3xl" />
             </Link>
             <Link
-              href="/"
+              href="/record"
               className="flex flex-col gap-1 items-center text-gray-500"
             >
               <HiMiniPencilSquare className="text-3xl" />

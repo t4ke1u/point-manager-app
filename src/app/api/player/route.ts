@@ -27,7 +27,7 @@ export const POST = async (req: NextRequest) => {
     lastScore: 0,
   }
   const docRef = doc(db, 'player', 'list')
-  const docSnap = await getDoc(doc(db, 'player', 'list'))
+  const docSnap = await getDoc(docRef)
   if (docSnap.exists()) {
     const { data } = docSnap.data()
     await setDoc(docRef, { data: [...data, player] })

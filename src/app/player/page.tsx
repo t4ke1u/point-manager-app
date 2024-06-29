@@ -3,7 +3,7 @@ import { PlayerList } from '@/components/player/PlayerList'
 const PlayerListPage = () => {
   return (
     <main>
-      <div className="md:mt-20 px-4 py-8">
+      <div className="md:mt-20 sm:mb-16 md:mb-0 px-4 py-8">
         <PlayerList />
       </div>
     </main>
