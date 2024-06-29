@@ -61,7 +61,7 @@ const Navigation = ({
               <HiMiniPencilSquare className="text-3xl" />
             </Link>
             <Link
-              href="/"
+              href="/player"
               className="flex flex-col gap-1 items-center text-gray-500"
             >
               <IoPerson className="text-3xl" />

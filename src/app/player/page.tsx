@@ -1,11 +1,13 @@
-import { PlayerTable } from '@/components/player/table'
+import { PlayerList } from '@/components/player/PlayerList'
 
-const PlayerPage = () => {
+const PlayerListPage = () => {
   return (
-    <div className="mt-20 p-4">
-      <PlayerTable />
-    </div>
+    <main>
+      <div className="md:mt-20 px-4 py-8">
+        <PlayerList />
+      </div>
+    </main>
   )
 }
 
-export default PlayerPage
+export default PlayerListPage

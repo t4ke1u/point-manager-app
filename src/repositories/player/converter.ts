@@ -7,6 +7,7 @@ export type PlayerData = {
   id: string
   name: string
   createdAt: string
+  lastScore: number
 }
 
 export const convertPlayerFromData = (data: PlayerData): Player => {
@@ -16,5 +17,6 @@ export const convertPlayerFromData = (data: PlayerData): Player => {
     createdAt: parse(data.createdAt, 'yyyy/MM/dd-HH:mm:ss', new Date(), {
       locale: ja,
     }),
+    lastScore: data.lastScore,
   }
 }
