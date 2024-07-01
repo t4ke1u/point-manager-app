@@ -14,7 +14,6 @@ export const GET = async () => {
     const records: ScoreRecordData[] = []
     querySnaps.forEach((doc) => {
       const { data } = doc.data() as { data: ScoreRecordData[] }
-      console.log(data)
       data.forEach((record) => records.push(record))
     })
     return Response.json(records)

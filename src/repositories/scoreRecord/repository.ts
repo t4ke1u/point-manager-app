@@ -8,9 +8,6 @@ export const createScoreRecordRepository = () => ({
   async list(): Promise<ScoreRecord[]> {
     const data = (await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/record`,
-      {
-        next: { revalidate: 30 },
-      },
     ).then((r) => r.json())) as ScoreRecordData[]
 
     return data.map(convertScoreRecordFromData)
