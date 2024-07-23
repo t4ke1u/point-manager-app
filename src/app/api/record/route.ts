@@ -6,6 +6,9 @@ import {
   doc,
   getDoc,
   getDocs,
+  limit,
+  orderBy,
+  query,
   setDoc,
 } from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
@@ -16,8 +19,18 @@ import type { NextRequest } from 'next/server'
 
 import { db } from '@/lib/firebase'
 
-export const GET = async () => {
-  const querySnaps = await getDocs(collection(db, 'record'))
+export const GET = async (req: Request) => {
+  const { searchParams } = new URL(req.url)
+  const maxCount = searchParams.get('limit')
+  const ref =
+    maxCount === null
+      ? collection(db, 'record')
+      : query(
+          collection(db, 'record'),
+          orderBy('date', 'desc'),
+          limit(Number(maxCount)),
+        )
+  const querySnaps = await getDocs(ref)
   try {
     const records: ScoreRecordData[] = []
     querySnaps.forEach(async (docSnap) => {

@@ -11,6 +11,6 @@ export const useScoreRecords = () => {
 
   return useSWR<ScoreRecord[]>(
     scoreRecordCacheKeyGenerator.generateListKey(),
-    () => repository.list(),
+    () => repository.list(20),
   )
 }

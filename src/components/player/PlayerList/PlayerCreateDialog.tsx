@@ -7,6 +7,8 @@ import { useForm } from 'react-hook-form'
 import { RxPlus } from 'react-icons/rx'
 import { z } from 'zod'
 
+import type { Player } from '@/models/player/type'
+
 import { Button } from '@/components/shadcn/ui/button'
 import {
   Dialog,
@@ -27,13 +29,23 @@ import {
 import { Input } from '@/components/shadcn/ui/input'
 import { usePlayerUsecase } from '@/usecases/player/usecase'
 
-const formSchema = z.object({
-  name: z.string().min(1, { message: '1文字以上の名前にしてください' }),
-})
+type Props = {
+  players: Player[]
+}
 
-type FormSchemaType = z.infer<typeof formSchema>
+export const PlayerCreateDialog = ({ players }: Props) => {
+  const formSchema = z
+    .object({
+      name: z.string().min(1, { message: '1文字以上の名前にしてください' }),
+    })
+    .refine(
+      (val) => {
+        return players.findIndex((player) => player.name === val.name) === -1
+      },
+      { message: '既に使用されている名前です', path: ['name'] },
+    )
 
-export const PlayerCreateDialog = () => {
+  type FormSchemaType = z.infer<typeof formSchema>
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
     defaultValues: { name: '' },

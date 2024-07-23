@@ -31,13 +31,25 @@ import { Input } from '@/components/shadcn/ui/input'
 import { usePlayerUsecase } from '@/usecases/player/usecase'
 
 type Props = {
+  players: Player[]
   player: Player
 }
 
-export const PlayerEditDialog = ({ player }: Props) => {
-  const formSchema = z.object({
-    name: z.string().min(1, { message: '1文字以上の名前にしてください' }),
-  })
+export const PlayerEditDialog = ({ players, player }: Props) => {
+  const formSchema = z
+    .object({
+      name: z.string().min(1, { message: '1文字以上の名前にしてください' }),
+    })
+    .refine(
+      (val) => {
+        return (
+          players
+            .filter((val) => val.id !== player.id)
+            .findIndex((player) => player.name === val.name) === -1
+        )
+      },
+      { message: '既に使用されている名前です', path: ['name'] },
+    )
 
   type FormSchemaType = z.infer<typeof formSchema>
 

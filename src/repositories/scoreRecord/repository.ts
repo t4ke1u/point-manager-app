@@ -5,9 +5,9 @@ import { convertScoreRecordFromData, type ScoreRecordData } from './converter'
 import type { ScoreRecord } from '@/models/scoreRecord/type'
 
 export const createScoreRecordRepository = () => ({
-  async list(): Promise<ScoreRecord[]> {
+  async list(limit: number): Promise<ScoreRecord[]> {
     const data = (await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/record`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/record?limit=${limit}`,
     ).then((r) => r.json())) as ScoreRecordData[]
 
     return data.map(convertScoreRecordFromData)

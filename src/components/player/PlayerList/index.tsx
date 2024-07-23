@@ -19,7 +19,7 @@ export const PlayerList = () => {
     <section>
       <h1 className="text-2xl font-bold">Players List</h1>
       <div className="mt-2 px-2 flex justify-end">
-        <PlayerCreateDialog />
+        <PlayerCreateDialog players={players} />
       </div>
       <ul className="mt-2 px-4 flex flex-col gap-2">
         {players

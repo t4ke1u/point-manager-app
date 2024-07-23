@@ -7,16 +7,17 @@ import { PlayerDeleteDialog } from './PlayerDeleteDialog'
 import { PlayerEditDialog } from './PlayerEditDialog'
 
 import { Label } from '@/components/shadcn/ui/label'
-import { usePlayer } from '@/usecases/player/reader'
+import { usePlayer, usePlayers } from '@/usecases/player/reader'
 
 type Props = {
   id: string
 }
 
 export const PlayerProfile = ({ id }: Props) => {
+  const { data: players } = usePlayers()
   const { data: player } = usePlayer(id)
 
-  if (!player) {
+  if (!players || !player) {
     return null
   }
 
@@ -24,7 +25,7 @@ export const PlayerProfile = ({ id }: Props) => {
     <section>
       <h1 className="text-2xl font-bold">プロフィール</h1>
       <div className="mt-2 px-2 flex justify-end gap-2">
-        <PlayerEditDialog player={player} />
+        <PlayerEditDialog players={players} player={player} />
         <PlayerDeleteDialog player={player} />
       </div>
       <div className="mt-6 px-4">

@@ -52,20 +52,25 @@ export const RecordDeleteDialog = ({ players, scoreRecord }: Props) => {
           <DialogTitle>記録を削除</DialogTitle>
           <DialogDescription>以下の記録を削除しますか？</DialogDescription>
         </DialogHeader>
-        <div className="flex items-center gap-5">
-          <p className="text-sm text-bold text-gray-500 w-24">プレイヤー名</p>
-          <p>
-            {players.find((player) => player.id === scoreRecord.playerId)?.name}
-          </p>
-        </div>
-        <div className="flex items-center gap-5">
-          <p className="text-sm text-bold text-gray-500 w-24">スコア</p>
-          <p>{scoreRecord.diff.toString()}</p>
-        </div>
-        <div className="flex items-center gap-5">
-          <p className="text-sm text-bold text-gray-500 w-24">日付</p>
-          <p>{format(scoreRecord.date, 'yyyy/MM/dd', { locale: ja })}</p>
-        </div>
+        <section className="px-5">
+          <div className="flex items-center gap-5">
+            <p className="text-sm font-bold text-gray-500 w-24">プレイヤー名</p>
+            <p>
+              {
+                players.find((player) => player.id === scoreRecord.playerId)
+                  ?.name
+              }
+            </p>
+          </div>
+          <div className="flex items-center gap-5">
+            <p className="text-sm font-bold text-gray-500 w-24">スコア</p>
+            <p>{scoreRecord.diff.toString()}</p>
+          </div>
+          <div className="flex items-center gap-5">
+            <p className="text-sm font-bold text-gray-500 w-24">日付</p>
+            <p>{format(scoreRecord.date, 'yyyy/MM/dd', { locale: ja })}</p>
+          </div>
+        </section>
         <DialogFooter>
           <Button onClick={onClick}>削除</Button>
         </DialogFooter>
