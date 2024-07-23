@@ -17,7 +17,6 @@ export const PlayerList = () => {
 
   return (
     <section>
-      <h1 className="text-2xl font-bold">Players List</h1>
       <div className="mt-2 px-2 flex justify-end">
         <PlayerCreateDialog players={players} />
       </div>
