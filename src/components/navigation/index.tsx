@@ -16,7 +16,7 @@ const Navigation = ({
             href="/"
             className="w-48 title-font font-medium text-gray-900 mb-0 ml-3 text-xl"
           >
-            T-League Poker
+            JOPT
           </Link>
           <nav className="w-full flex gap-20 items-center text-base justify-center">
             <Link

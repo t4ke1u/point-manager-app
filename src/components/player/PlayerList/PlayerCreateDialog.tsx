@@ -44,6 +44,7 @@ export const PlayerCreateDialog = () => {
   const onSubmit = async (value: FormSchemaType) => {
     console.log(value)
     createPlayer(value.name)
+    form.reset()
     setOpen(false)
   }
 
