@@ -62,7 +62,7 @@ export const RecordTable = ({ scoreRecords, players }: Props) => {
                   <ArrowUpDown className="ml-2 h-4 w-4" />
                 </Button>
               </TableHead>
-              <TableHead />
+              <TableHead className="w-32" />
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -74,7 +74,7 @@ export const RecordTable = ({ scoreRecords, players }: Props) => {
                   <TableCell className="text-xs text-center">
                     {format(row.date, 'yyyy/MM/dd', { locale: ja })}
                   </TableCell>
-                  <TableCell className="inline-flex gap-2 px-1">
+                  <TableCell className="inline-flex gap-2 px-1 w-32 justify-center">
                     <AuthManagementComponent>
                       <RecordEditDialog players={players} scoreRecord={row} />
                       <RecordDeleteDialog players={players} scoreRecord={row} />
