@@ -42,7 +42,9 @@ export const RecordTable = ({ scoreRecords, players }: Props) => {
           onChange={(e) => setFilterName(e.target.value)}
           className="max-w-[240px]"
         />
-        <RecordCreateDialog players={players} />
+        <AuthManagementComponent>
+          <RecordCreateDialog players={players} />
+        </AuthManagementComponent>
       </div>
       <div className="rounded-md border">
         <Table>
