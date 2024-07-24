@@ -187,7 +187,7 @@ export const RecordCreateDialog = ({ players }: Props) => {
               />
             </div>
             <DialogFooter>
-              <Button type="submit">更新</Button>
+              <Button type="submit">作成</Button>
             </DialogFooter>
           </form>
         </Form>
