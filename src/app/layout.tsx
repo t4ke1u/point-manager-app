@@ -5,8 +5,8 @@ import Navigation from '@/components/navigation'
 import { notoSansJP } from '@/styles/fonts'
 
 export const metadata: Metadata = {
-  title: 'Poker T-League',
-  description: 'this site manages multiplayer points in T-League',
+  title: 'JOPT',
+  description: 'Togawa Lab Poker Score Management App',
 }
 
 const RootLayout = ({
