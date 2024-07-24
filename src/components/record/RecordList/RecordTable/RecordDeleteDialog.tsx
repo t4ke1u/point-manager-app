@@ -43,7 +43,7 @@ export const RecordDeleteDialog = ({ players, scoreRecord }: Props) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="inline-flex items-center gap-1 px-3">
+        <Button className="inline-flex items-center gap-1 px-3 bg-red-500 hover:bg-red-700">
           <RxTrash />
         </Button>
       </DialogTrigger>
@@ -72,7 +72,9 @@ export const RecordDeleteDialog = ({ players, scoreRecord }: Props) => {
           </div>
         </section>
         <DialogFooter>
-          <Button onClick={onClick}>削除</Button>
+          <Button onClick={onClick} className="bg-red-500 hover:bg-red-700">
+            削除
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

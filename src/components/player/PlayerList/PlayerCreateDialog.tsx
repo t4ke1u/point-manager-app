@@ -63,7 +63,7 @@ export const PlayerCreateDialog = ({ players }: Props) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="inline-flex items-center gap-1">
+        <Button className="inline-flex items-center gap-1 bg-blue-500 hover:bg-blue-700">
           <RxPlus />
           新規作成
         </Button>
@@ -94,7 +94,9 @@ export const PlayerCreateDialog = ({ players }: Props) => {
               />
             </div>
             <DialogFooter>
-              <Button type="submit">作成</Button>
+              <Button type="submit" className="bg-blue-500 hover:bg-blue-700">
+                作成
+              </Button>
             </DialogFooter>
           </form>
         </Form>

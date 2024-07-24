@@ -62,7 +62,7 @@ export const PlayerDeleteDialog = ({ player }: Props) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="inline-flex items-center gap-1">
+        <Button className="inline-flex items-center gap-1 bg-red-500 hover:bg-red-700">
           <RxTrash />
           削除
         </Button>
@@ -96,7 +96,9 @@ export const PlayerDeleteDialog = ({ player }: Props) => {
               />
             </div>
             <DialogFooter>
-              <Button type="submit">削除</Button>
+              <Button type="submit" className="bg-red-500 hover:bg-red-700">
+                削除
+              </Button>
             </DialogFooter>
           </form>
         </Form>

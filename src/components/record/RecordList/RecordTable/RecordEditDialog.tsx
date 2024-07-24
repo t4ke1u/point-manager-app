@@ -111,7 +111,7 @@ export const RecordEditDialog = ({ players, scoreRecord }: Props) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="inline-flex items-center gap-1 px-3">
+        <Button className="inline-flex items-center gap-1 px-3 bg-green-600 hover:bg-green-800">
           <RxPencil1 />
         </Button>
       </DialogTrigger>
@@ -206,7 +206,9 @@ export const RecordEditDialog = ({ players, scoreRecord }: Props) => {
               />
             </div>
             <DialogFooter>
-              <Button type="submit">更新</Button>
+              <Button type="submit" className="bg-green-600 hover:bg-green-800">
+                更新
+              </Button>
             </DialogFooter>
           </form>
         </Form>
