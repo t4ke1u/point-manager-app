@@ -3,6 +3,8 @@ import { FaRankingStar } from 'react-icons/fa6'
 import { HiMiniPencilSquare } from 'react-icons/hi2'
 import { IoPerson } from 'react-icons/io5'
 
+import { SessionButton } from '../auth/SessionButton'
+
 const Navigation = ({
   children,
 }: Readonly<{
@@ -41,6 +43,7 @@ const Navigation = ({
               <span>Player</span>
             </Link>
           </nav>
+          <SessionButton />
         </div>
       </header>
       {children}

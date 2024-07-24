@@ -12,6 +12,7 @@ import { useRecordTable } from './RecordTable.hooks'
 import type { Player } from '@/models/player/type'
 import type { ScoreRecord } from '@/models/scoreRecord/type'
 
+import { AuthManagementComponent } from '@/components/auth/AuthMangementComponent'
 import { Button } from '@/components/shadcn/ui/button'
 import { Input } from '@/components/shadcn/ui/input'
 import {
@@ -72,8 +73,10 @@ export const RecordTable = ({ scoreRecords, players }: Props) => {
                     {format(row.date, 'yyyy/MM/dd', { locale: ja })}
                   </TableCell>
                   <TableCell className="inline-flex gap-2 px-1">
-                    <RecordEditDialog players={players} scoreRecord={row} />
-                    <RecordDeleteDialog players={players} scoreRecord={row} />
+                    <AuthManagementComponent>
+                      <RecordEditDialog players={players} scoreRecord={row} />
+                      <RecordDeleteDialog players={players} scoreRecord={row} />
+                    </AuthManagementComponent>
                   </TableCell>
                 </TableRow>
               ))

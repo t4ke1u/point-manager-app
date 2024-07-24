@@ -6,6 +6,8 @@ import { ja } from 'date-fns/locale'
 import { PlayerDeleteDialog } from './PlayerDeleteDialog'
 import { PlayerEditDialog } from './PlayerEditDialog'
 
+import { AuthManagementComponent } from '@/components/auth/AuthMangementComponent'
+import { SessionButton } from '@/components/auth/SessionButton'
 import { Label } from '@/components/shadcn/ui/label'
 import { usePlayer, usePlayers } from '@/usecases/player/reader'
 
@@ -23,10 +25,17 @@ export const PlayerProfile = ({ id }: Props) => {
 
   return (
     <section>
-      <h1 className="text-2xl font-bold">プロフィール</h1>
+      <div className="mb-5 ml-2 flex items-center justify-between">
+        <h1 className="font-bold text-2xl">プロフィール</h1>
+        <div className="md:hidden">
+          <SessionButton />
+        </div>
+      </div>
       <div className="mt-2 px-2 flex justify-end gap-2">
         <PlayerEditDialog players={players} player={player} />
-        <PlayerDeleteDialog player={player} />
+        <AuthManagementComponent>
+          <PlayerDeleteDialog player={player} />
+        </AuthManagementComponent>
       </div>
       <div className="mt-6 px-4">
         <div className="p-4 flex gap-6 items-center justify-start border-y border-solid border-gray-300">

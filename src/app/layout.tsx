@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import '@/styles/globals.css'
 import Navigation from '@/components/navigation'
+import NextAuthProvider from '@/lib/auth/NextAuth'
 import { notoSansJP } from '@/styles/fonts'
 
 export const metadata: Metadata = {
@@ -17,7 +18,9 @@ const RootLayout = ({
   return (
     <html lang="jp">
       <body className={notoSansJP.className}>
-        <Navigation>{children}</Navigation>
+        <NextAuthProvider>
+          <Navigation>{children}</Navigation>
+        </NextAuthProvider>
       </body>
     </html>
   )
