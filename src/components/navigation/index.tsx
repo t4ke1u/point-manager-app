@@ -13,7 +13,7 @@ const Navigation = ({
   return (
     <>
       <header className="hidden md:contents">
-        <div className="fixed top-0 left-0 h-16 container mx-auto flex p-5 items-center border-b border-solid border-gray-300 bg-white">
+        <div className="fixed top-0 left-0 h-16 container mx-auto min-w-full flex p-5 items-center border-b border-solid border-gray-300 bg-white">
           <Link
             href="/"
             className="w-48 title-font font-medium text-gray-900 mb-0 ml-3 text-xl"
