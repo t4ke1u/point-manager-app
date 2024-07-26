@@ -5,11 +5,14 @@ import { ja } from 'date-fns/locale'
 
 import { PlayerDeleteDialog } from './PlayerDeleteDialog'
 import { PlayerEditDialog } from './PlayerEditDialog'
+import { PlayerRecordTable } from './PlayerRecordTable'
+import { PlayerScoreChart } from './PlayerScoreChart'
 
 import { AuthManagementComponent } from '@/components/auth/AuthMangementComponent'
 import { SessionButton } from '@/components/auth/SessionButton'
 import { Label } from '@/components/shadcn/ui/label'
 import { usePlayer, usePlayers } from '@/usecases/player/reader'
+import { useScoreRecords } from '@/usecases/scoreRecord/reader'
 
 type Props = {
   id: string
@@ -18,8 +21,9 @@ type Props = {
 export const PlayerProfile = ({ id }: Props) => {
   const { data: players } = usePlayers()
   const { data: player } = usePlayer(id)
+  const { data: scoreRecords } = useScoreRecords()
 
-  if (!players || !player) {
+  if (!players || !player || !scoreRecords) {
     return null
   }
 
@@ -52,6 +56,12 @@ export const PlayerProfile = ({ id }: Props) => {
             {format(player.createdAt, 'yyyy/MM/dd HH:mm:ss', { locale: ja })}
           </p>
         </div>
+      </div>
+      <div className="p-4">
+        <PlayerScoreChart scoreRecords={scoreRecords} player={player} />
+      </div>
+      <div className="p-4">
+        <PlayerRecordTable scoreRecords={scoreRecords} player={player} />
       </div>
     </section>
   )

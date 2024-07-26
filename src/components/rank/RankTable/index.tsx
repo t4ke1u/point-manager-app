@@ -30,7 +30,7 @@ export const RankTable = () => {
           {!players ? (
             <TableRow>
               <TableCell colSpan={2} className="h-24 text-center">
-                No results.
+                No Records.
               </TableCell>
             </TableRow>
           ) : (

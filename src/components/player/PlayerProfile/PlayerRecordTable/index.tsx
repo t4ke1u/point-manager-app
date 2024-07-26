@@ -4,17 +4,15 @@ import { format } from 'date-fns'
 import { ja } from 'date-fns/locale'
 import { ArrowUpDown } from 'lucide-react'
 
-import { RecordCreateDialog } from './RecordCreateDialog'
-import { RecordDeleteDialog } from './RecordDeleteDialog'
-import { RecordEditDialog } from './RecordEditDialog'
-import { useRecordTable } from './RecordTable.hooks'
+import { PlayerRecordDeleteDialog } from './PlayerRecordDeleteDialog'
+import { PlayerRecordEditDialog } from './PlayerRecordEditDialog'
+import { usePlayerRecordTable } from './PlayerRecordTable.hooks'
 
 import type { Player } from '@/models/player/type'
 import type { ScoreRecord } from '@/models/scoreRecord/type'
 
 import { AuthManagementComponent } from '@/components/auth/AuthMangementComponent'
 import { Button } from '@/components/shadcn/ui/button'
-import { Input } from '@/components/shadcn/ui/input'
 import {
   Table,
   TableBody,
@@ -26,26 +24,18 @@ import {
 
 type Props = {
   scoreRecords: ScoreRecord[]
-  players: Player[]
+  player: Player
 }
 
-export const RecordTable = ({ scoreRecords, players }: Props) => {
-  const { filterName, setFilterName, toggleDateSort, tableData } =
-    useRecordTable(scoreRecords, players)
+export const PlayerRecordTable = ({ scoreRecords, player }: Props) => {
+  const { toggleDateSort, tableData } = usePlayerRecordTable(
+    scoreRecords,
+    player,
+  )
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between py-4">
-        <Input
-          placeholder="Filter names..."
-          value={filterName}
-          onChange={(e) => setFilterName(e.target.value)}
-          className="max-w-[240px]"
-        />
-        <AuthManagementComponent>
-          <RecordCreateDialog players={players} />
-        </AuthManagementComponent>
-      </div>
+      <h2 className="mx-1 my-2 text-lg font-bold">スコア記録</h2>
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -76,8 +66,14 @@ export const RecordTable = ({ scoreRecords, players }: Props) => {
                   </TableCell>
                   <TableCell className="inline-flex gap-2 px-1 w-32 justify-center">
                     <AuthManagementComponent>
-                      <RecordEditDialog players={players} scoreRecord={row} />
-                      <RecordDeleteDialog players={players} scoreRecord={row} />
+                      <PlayerRecordEditDialog
+                        player={player}
+                        scoreRecord={row}
+                      />
+                      <PlayerRecordDeleteDialog
+                        player={player}
+                        scoreRecord={row}
+                      />
                     </AuthManagementComponent>
                   </TableCell>
                 </TableRow>
