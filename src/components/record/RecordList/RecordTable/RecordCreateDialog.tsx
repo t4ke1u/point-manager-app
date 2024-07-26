@@ -91,7 +91,7 @@ export const RecordCreateDialog = ({ players }: Props) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="inline-flex items-center gap-1 bg-blue-500 hover:bg-blue-700">
+        <Button className="inline-flex items-center gap-1 bg-indigo-500 hover:bg-indigo-700">
           <RxPlus />
           新規作成
         </Button>
@@ -187,7 +187,10 @@ export const RecordCreateDialog = ({ players }: Props) => {
               />
             </div>
             <DialogFooter>
-              <Button type="submit" className="bg-blue-500 hover:bg-blue-700">
+              <Button
+                type="submit"
+                className="bg-indigo-500 hover:bg-indigo-700"
+              >
                 作成
               </Button>
             </DialogFooter>
