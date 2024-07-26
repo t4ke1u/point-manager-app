@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { addHours, format } from 'date-fns'
 import { ja } from 'date-fns/locale'
 import {
   collection,
@@ -55,7 +55,9 @@ export const POST = async (req: NextRequest) => {
     playerId,
     diff,
     date,
-    recordedAt: format(new Date(), 'yyyy/MM/dd-HH:mm:ss', { locale: ja }),
+    recordedAt: format(addHours(new Date(), 9), 'yyyy/MM/dd-HH:mm:ss', {
+      locale: ja,
+    }),
   }
   const docRef = doc(db, 'record', date)
   const docSnap = await getDoc(docRef)
@@ -102,7 +104,9 @@ export const PUT = async (req: NextRequest) => {
     playerId,
     diff,
     date,
-    recordedAt: format(new Date(), 'yyyy/MM/dd-HH:mm:ss', { locale: ja }),
+    recordedAt: format(addHours(new Date(), 9), 'yyyy/MM/dd-HH:mm:ss', {
+      locale: ja,
+    }),
   }
   if (dateKey === date) {
     const docRef = doc(db, 'record', dateKey)

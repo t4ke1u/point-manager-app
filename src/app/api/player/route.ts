@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { addHours, format } from 'date-fns'
 import { ja } from 'date-fns/locale'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
@@ -23,7 +23,9 @@ export const POST = async (req: NextRequest) => {
   const player = {
     id,
     name,
-    createdAt: format(new Date(), 'yyyy/MM/dd-HH:mm:ss', { locale: ja }),
+    createdAt: format(addHours(new Date(), 9), 'yyyy/MM/dd-HH:mm:ss', {
+      locale: ja,
+    }),
     lastScore: 0,
   }
   const docRef = doc(db, 'player', 'list')
