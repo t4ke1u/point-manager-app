@@ -50,12 +50,12 @@ export const useScoreChart = (
           )
         }
       })
+    labels.reverse()
     players.forEach((player) => {
       const color = `rgba(${getRandomInt(0, 255)}, ${getRandomInt(0, 255)}, ${getRandomInt(0, 255)})`
       datasets.push({
         label: player.name,
         data: labels
-          .reverse()
           .reduce(
             (scores, label) => {
               const diff = scoreRecords
@@ -76,8 +76,8 @@ export const useScoreChart = (
         backgroundColor: color,
       })
     })
-    console.log({ labels, datasets })
-    setData({ labels: labels.reverse(), datasets })
+    labels.reverse()
+    setData({ labels, datasets })
   }, [players, scoreRecords])
 
   return { data }
