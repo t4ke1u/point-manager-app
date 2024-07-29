@@ -77,7 +77,7 @@ export const useScoreChart = (
       })
     })
     console.log({ labels, datasets })
-    setData({ labels, datasets })
+    setData({ labels: labels.reverse(), datasets })
   }, [players, scoreRecords])
 
   return { data }
