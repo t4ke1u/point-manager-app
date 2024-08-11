@@ -30,8 +30,13 @@ type Props = {
 }
 
 export const RecordTable = ({ scoreRecords, players }: Props) => {
-  const { filterName, setFilterName, toggleDateSort, tableData } =
-    useRecordTable(scoreRecords, players)
+  const {
+    filterName,
+    setFilterName,
+    toggleDateSort,
+    tableData,
+    invalidRecordDates,
+  } = useRecordTable(scoreRecords, players)
 
   return (
     <div className="w-full">
@@ -70,7 +75,15 @@ export const RecordTable = ({ scoreRecords, players }: Props) => {
               tableData.map((row) => (
                 <TableRow key={row.id}>
                   <TableCell>{row.playerName}</TableCell>
-                  <TableCell className="text-center">{row.diff}</TableCell>
+                  {invalidRecordDates.includes(
+                    format(row.date, 'yyyy/MM/dd', { locale: ja }),
+                  ) ? (
+                    <TableCell className="text-center text-red-600">
+                      {row.diff}
+                    </TableCell>
+                  ) : (
+                    <TableCell className="text-center">{row.diff}</TableCell>
+                  )}
                   <TableCell className="text-xs text-center">
                     {format(row.date, 'yyyy/MM/dd', { locale: ja })}
                   </TableCell>
