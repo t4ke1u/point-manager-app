@@ -103,7 +103,11 @@ export const PlayerEditDialog = ({ players, player }: Props) => {
               />
             </div>
             <DialogFooter>
-              <Button type="submit" className="bg-teal-600 hover:bg-teal-800">
+              <Button
+                type="submit"
+                className="bg-teal-600 hover:bg-teal-800"
+                disabled={form.formState.isSubmitting}
+              >
                 更新
               </Button>
             </DialogFooter>

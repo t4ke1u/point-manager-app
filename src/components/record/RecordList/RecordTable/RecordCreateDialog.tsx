@@ -190,6 +190,7 @@ export const RecordCreateDialog = ({ players }: Props) => {
               <Button
                 type="submit"
                 className="bg-indigo-500 hover:bg-indigo-700"
+                disabled={form.formState.isSubmitting}
               >
                 作成
               </Button>
